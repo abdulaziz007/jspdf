@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Client-side Example with jsPDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.15/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
+        /* Custom CSS styles */
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Client-side Example with jsPDF</h1>
+        <p>This is an example of client-side HTML, CSS, and JavaScript using the jsPDF library.</p>
+        <button id="generatePdfBtn" class="btn">Generate PDF</button>
+    </div>
+
+    <script>
+
+        // Event listener for the "Generate PDF" button
+        document.getElementById('generatePdfBtn').addEventListener('click', function () {
+            // Create a new jsPDF instance
+            var doc = new jspdf.jsPDF();
+            var totalPagesExp = '{total_pages_count_string}';
+
+            // Set up the font
+            doc.addFont("fonts/Amiri-Regular.ttf", "Amiri", "normal");
+            doc.addFont("fonts/Tajawal-Regular.ttf", "Tajawal", "normal");
+
+
+
+            doc.setFont("Amiri"); // set font
+            doc.setFontSize(12);
+            // doc.text('عنوان التقرير', 5, 15);
+            // doc.addImage("images/logo.png", "PNG", (doc.internal.pageSize.getWidth() / 2) - 12, 8, 24, 20);
+
+
+            // Configure the table options
+            var tableOptions = {
+                startY: 30, // Y position to start the table
+                margin: { top: 30 }, // Margin from the top
+                styles: { font: "Amiri", fontStyle: "normal", fontSize: 12, halign: 'right' }, // Table font styles
+                theme: 'grid' // Theme of the table
+            };
+
+            // Table data
+            var tableData = [
+                ["الدولة", "العمر", "الاسم"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"],
+                ["السعودية", "30", "عبدالعزيز"]
+            ];
+
+            // Add the table to the PDF
+            // Add the table to the PDF
+            doc.autoTable({
+                head: [tableData[0]], // Table header
+                body: tableData.slice(1), // Table body
+                ...tableOptions, // Spread the tableOptions object
+                willDrawPage: function (data) {
+                    
+                },
+                didDrawPage: function (data) {
+                    // Header
+                    doc.setFont("Amiri"); // set font
+                    doc.setFontSize(12);
+                    // right side
+                    doc.text('المملكة العربية السعودية', 195, 10, null, null, "right");
+                    doc.text('وزارة التعليم', 195, 15, null, null, "right");
+                    doc.text('...................إدارة التعليم', 195, 20, null, null, "right");
+                    doc.text('...........................إدارة ', 195, 25, null, null, "right");
+                    // left side
+                    doc.text('.......................... : التاريـخ', 50, 10,null, null, "right");
+                    doc.text('.......................... : الـرقــم', 50, 17,null, null, "right");
+                    doc.text('.......................... : الموضوع', 50, 24,null, null, "right");
+                    // logo in the center
+                    doc.addImage("images/logo.png", "PNG", (doc.internal.pageSize.getWidth() / 2) - 12, 8, 24, 20);
+                    // Footer
+                    var pageCount = data.pageNumber + " من ";
+                    var footerContent;
+                    if (typeof doc.putTotalPages === 'function') {
+                        footerContent =   `${totalPagesExp} صفحة ${pageCount}`;
+                    }
+                    doc.setFontSize(12);
+                    doc.text(footerContent, data.settings.margin.left, doc.internal.pageSize.height - 10);
+                }
+            });
+
+
+            // Total page number plugin only available in jspdf v1.0+
+            if (typeof doc.putTotalPages === 'function') {
+                doc.putTotalPages(totalPagesExp)
+            }
+
+
+            // Save the PDF document
+            doc.save('example.pdf');
+        });
+    </script>
+</body>
+
+</html>
