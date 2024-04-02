@@ -61,6 +61,7 @@
             // Set up the font
             doc.addFont("fonts/Amiri-Regular.ttf", "Amiri", "normal");
             doc.addFont("fonts/Tajawal-Regular.ttf", "Tajawal", "normal");
+            doc.addFont("fonts/IBMPlexSansArabic-Regular.ttf", "IBMPlexSansArabic-Regular", "normal");
 
 
 
@@ -74,7 +75,7 @@
             var tableOptions = {
                 startY: 30, // Y position to start the table
                 margin: { top: 30 }, // Margin from the top
-                styles: { font: "Amiri", fontStyle: "normal", fontSize: 12, halign: 'right' }, // Table font styles
+                styles: { font: "IBMPlexSansArabic-Regular", fontStyle: "normal", fontSize: 12, halign: 'right' }, // Table font styles
                 theme: 'grid' // Theme of the table
             };
 
@@ -155,7 +156,7 @@
                 },
                 didDrawPage: function (data) {
                     // Header
-                    doc.setFont("Amiri"); // set font
+                    doc.setFont("IBMPlexSansArabic-Regular"); // set font
                     doc.setFontSize(12);
                     // right side
                     doc.text('المملكة العربية السعودية', 195, 10, null, null, "right");
@@ -163,9 +164,9 @@
                     doc.text('...................إدارة التعليم', 195, 20, null, null, "right");
                     doc.text('...........................إدارة ', 195, 25, null, null, "right");
                     // left side
-                    doc.text('.......................... : التاريـخ', 50, 10,null, null, "right");
-                    doc.text('.......................... : الـرقــم', 50, 17,null, null, "right");
-                    doc.text('.......................... : الموضوع', 50, 24,null, null, "right");
+                    doc.text('........................ : التــاريــــــخ', 60, 10,null, null, "right");
+                    doc.text('........................ : الــــرقـــــــم', 60, 17,null, null, "right");
+                    doc.text('........................ : الموضوع', 60, 24,null, null, "right");
                     // logo in the center
                     doc.addImage("images/logo.png", "PNG", (doc.internal.pageSize.getWidth() / 2) - 12, 8, 24, 20);
                     // Footer
